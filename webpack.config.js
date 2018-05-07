@@ -1,11 +1,13 @@
 const webpack = require("webpack");
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: __dirname + "/app/app.js",  // 入口
     output: {               // 出口
-        path: path.resolve(__dirname, "app"), // 打包后文件存放的路径
+        path: path.resolve(__dirname, "./build"), // 打包后文件存放的路径
         filename: "bundle.js",  // 打包后的文件名
+        publicPath: '/' // 编译后不知道最终输出路径（编译后HTML文件引入js文件不设置会发生错误../../build/bundle.js）
     },
     module: {   // 加载loader
         rules: [
@@ -29,38 +31,28 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                  { loader: 'style-loader' },
-                  {
-                    loader: 'css-loader',
-                    options: {
-//                    modules: true,
-                      importLoaders: 1,
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+//                          modules: true,
+                            importLoaders: 1,
+                        }
+                    }, {
+                        loader: "postcss-loader"    // css自动加前缀，配合根目录postcss.config.js使用
                     }
-                  }
                 ]
-              }
-//          {//CSS处理
-//              test: /\.css$/,
-//              loader: "style-loader!css-loader?modules!./app/assets/style/global.css",
-//              exclude: /node_modules/,
-//          },
-//          {
-//              test: /\.css$/,
-//              use: [{
-//                  loader: "style-loader",
-//              }, {
-//                  loader: "css-loader",
-//                  options: {
-////                      modules: true,
-//                      importLoaders: 1,
-////                      localIdentName: "[local]__[hash:base:8]"
-//                  }
-//              }]
-//          }
+            }
         ]
     },
     plugins: [
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: __dirname + '/build/index.html',
+            template: __dirname + '/app/index.html'
+        })
     ],
     resolve: {
         //require文件的时候不需要写后缀了，可以自动补全

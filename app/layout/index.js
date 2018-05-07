@@ -13,14 +13,23 @@ export default class PrimaryLayout extends React.Component {
         super(props);
         this.state = {
             collapsed: false,
+            SelectedKeys: '/',
         }
     }
+    componentWillMount() {
+        console.log(window.location.pathname, 3);
+        this.setState({
+            SelectedKeys: window.location.pathname,
+        });
+    }
     toggle = () => {
+        console.log(window.location.pathname, 33);
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
     render() {
+        const { SelectedKeys } = this.state;
         return(
             <Layout>
                 <Sider
@@ -29,15 +38,18 @@ export default class PrimaryLayout extends React.Component {
                   collapsed={this.state.collapsed}
                 >
                     <div className="logo" />
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['/']}>
+                    <Menu theme="dark" mode="inline" defaultSelectedKeys={[SelectedKeys]}>
                         <Menu.Item key="/">
-                            <Link to="/"><Icon type="user" />首页</Link>
+                            <Icon type="user" />
+                            <Link to="/">首页</Link>
                         </Menu.Item>
                         <Menu.Item key="/about">
-                            <Link to="/about"><Icon type="video-camera" />关于</Link>
+                            <Icon type="video-camera" />
+                            <Link to="/about">关于页</Link>
                         </Menu.Item>
                         <Menu.Item key="/info">
-                            <Link to="/info"><Icon type="upload" />个人信息</Link>
+                            <Icon type="upload" />
+                            <Link to="/info">个人信息页</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
