@@ -6,7 +6,7 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <div>AAABBBCCC</div>
+            <div>这是首页</div>
         );
     }
 }

@@ -17,13 +17,12 @@ export default class PrimaryLayout extends React.Component {
         }
     }
     componentWillMount() {
-        console.log(window.location.pathname, 3);
+        // 切换路由刷新时保证还是对应的导航栏
         this.setState({
             SelectedKeys: window.location.pathname,
         });
     }
     toggle = () => {
-        console.log(window.location.pathname, 33);
         this.setState({
             collapsed: !this.state.collapsed,
         });
@@ -41,15 +40,15 @@ export default class PrimaryLayout extends React.Component {
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={[SelectedKeys]}>
                         <Menu.Item key="/">
                             <Icon type="user" />
-                            <Link to="/">首页</Link>
+                            <span><Link to="/">首页</Link></span>
                         </Menu.Item>
                         <Menu.Item key="/about">
                             <Icon type="video-camera" />
-                            <Link to="/about">关于页</Link>
+                            <span><Link to="/about">关于页</Link></span>
                         </Menu.Item>
                         <Menu.Item key="/info">
                             <Icon type="upload" />
-                            <Link to="/info">个人信息页</Link>
+                            <span><Link to="/info">个人信息页</Link></span>
                         </Menu.Item>
                     </Menu>
                 </Sider>
@@ -63,7 +62,6 @@ export default class PrimaryLayout extends React.Component {
                     </Header>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
                         {this.props.children}
-                        {console.log(this.props)}
                     </Content>
                 </Layout>
             </Layout>
