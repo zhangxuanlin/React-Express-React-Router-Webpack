@@ -36,7 +36,7 @@ export default class PrimaryLayout extends React.Component {
                   collapsible
                   collapsed={this.state.collapsed}
                 >
-                    <div className="logo" />
+                    <div className="logo">手动构建项目</div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={[SelectedKeys]}>
                         <Menu.Item key="/">
                             <Icon type="user" />

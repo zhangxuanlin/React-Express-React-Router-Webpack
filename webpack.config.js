@@ -3,11 +3,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: __dirname + "/app/app.js",  // 入口
+    entry: [
+        "webpack-hot-middleware/client?reload=true",
+        __dirname + "/app/app.js"  // 入口
+    ],
     output: {               // 出口
         path: path.resolve(__dirname, "./build"), // 打包后文件存放的路径
         filename: "bundle.js",  // 打包后的文件名
-        publicPath: '/' // 编译后不知道最终输出路径（编译后HTML文件引入js文件不设置会发生错误../../build/bundle.js）
+        publicPath: '/' // 静态资源的公共路径，编译后不知道最终输出路径（编译后HTML文件引入js文件不设置会发生错误../../build/bundle.js）
     },
     module: {   // 加载loader
         rules: [
@@ -52,7 +55,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: __dirname + '/build/index.html',
             template: __dirname + '/app/index.html'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin() // Tell webpack we want hot reloading
     ],
     resolve: {
         //require文件的时候不需要写后缀了，可以自动补全
