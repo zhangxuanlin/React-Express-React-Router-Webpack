@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const EslintFriendlyFormatter = require('eslint-friendly-formatter');
 
 module.exports = {
     entry: [
@@ -14,6 +15,21 @@ module.exports = {
     },
     module: {   // 加载loader
         rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, 'app'),
+                ],
+                use: {
+                    loader: 'eslint-loader',
+                    options: {
+//                      cache: true,
+                        formatter: EslintFriendlyFormatter,
+                    },
+                },
+            },
             {
                 test: /(\.jsx|\.js)$/,
                 exclude: /node_modules/,

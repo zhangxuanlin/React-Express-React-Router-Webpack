@@ -8,7 +8,7 @@ const App = () => (
     <BrowserRouter>
         <PrimaryLayout>
             <Switch>
-                { 
+                {
                     routes.map((route, i) => (
                         <RouteWithSubRoutes key={String(i)} {...route} />
                     ))

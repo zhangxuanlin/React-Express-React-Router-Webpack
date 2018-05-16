@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class Info extends React.Component {
-    state = {
-        i: 0,
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
     }
     render() {
         return (
