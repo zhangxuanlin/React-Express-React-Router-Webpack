@@ -1,0 +1,57 @@
+.flex1 {
+    flex: 1;
+}
+.videoBigBox {
+    height: 400px;
+    background: #ededed;
+}
+.videobox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.VideoMenu {
+    flex: 0 0 200px;
+}
+.VideoMenu ul {
+    height: 100%;
+    background-color: #272727;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.VideoMenu-item {
+    padding: 8px 20px;
+    color: rgba(255, 255, 255, 0.65);
+    /*background-color: rgb(202, 194, 27);*/
+    transition: all 0.3s;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.VideoMenu-item:hover, .active {
+    background-color: #131313;
+    border-left: 5px solid #1890ff;
+    color: #fff;
+}
+.Video {
+}
+.SubVideoBox {
+    transition: all 1s;
+}
+.SubVideo {
+    height: 400px;
+}
+.hidden {
+    overflow: hidden;
+}
+/*----------------------树--------------------------*/
+.childUl {
+    padding-left: 20px;
+}
+.childUl li {
+    cursor: pointer;
+}
+/*--------------------------------------------------*/
+

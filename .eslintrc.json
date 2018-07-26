@@ -55,6 +55,21 @@
             "specialLink": [ "hrefLeft", "hrefRight" ],
             "aspects": [ "noHref", "invalidHref", "preferButton" ]
         }],
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-a11y/no-static-element-interactions": [
+            2,
+            {
+                "handlers": [
+                    "onClick",
+                    "onMouseDown",
+                    "onMouseUp",
+                    "onKeyPress",
+                    "onKeyDown",
+                    "onKeyUp"
+                ]
+            }
+        ],
         "jsx-a11y/aria-props": 2,
         "jsx-a11y/heading-has-content": 0,
         "jsx-a11y/href-no-hash": 0,
@@ -62,6 +77,7 @@
         "jsx-a11y/mouse-events-have-key-events": 2,
         "jsx-a11y/role-has-required-aria-props": 2,
         "jsx-a11y/role-supports-aria-props": 2,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
         "max-len": 0,
         "newline-per-chained-call": 0,
         "no-confusing-arrow": 0,
@@ -81,7 +97,10 @@
         "require-yield": 0,
         "import/no-webpack-loader-syntax": 0,
         "linebreak-style": 0,
-        "no-mixed-spaces-and-tabs": 0
+        "no-mixed-spaces-and-tabs": 0,
+        "function-paren-newline": [2, "consistent"],
+        "template-curly-spacing": 0,
+        "template-tag-spacing": 0
     }
 //  "settings": {
 //      "import/resolver": {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import PrimaryLayout from '../../layout';
+import PrimaryLayout from '../../layouts/PrimaryLayout';
 import routes from '../../routers';
 import RouteWithSubRoutes from '../../components/RouteWithSubRoutes';
 

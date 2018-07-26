@@ -8,7 +8,7 @@ class About extends React.Component {
     }
     render() {
         return (
-            <div>这是关于页</div>
+            <div>这是关于页!</div>
         );
     }
 }

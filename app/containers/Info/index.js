@@ -8,7 +8,7 @@ class Info extends React.Component {
     }
     render() {
         return (
-            <div>这是个人信息页</div>
+            <div>这是个人信息页!</div>
         );
     }
 }
